@@ -9,9 +9,13 @@
       </div>
     </div>
     
-    <form class="search">
+    <form
+      class="search"
+      @submit.prevent="searchMovies"
+    >
       <div class="search__inner">
         <input
+          v-model="userInput"
           type="text"
           placeholder="검색어를 입력하세요..."
         />
@@ -28,6 +32,25 @@
     </form>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      userInput: ''
+    }
+  },
+  methods: {
+    searchMovies() {
+      this.$store.dispatch('fetchMovieList', {
+        userInput: this.userInput
+      })
+
+      this.userInput = ''
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 * {
