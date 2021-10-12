@@ -24,3 +24,10 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+main {
+  width: 100%;
+  padding-bottom: 50px;
+}
+</style>

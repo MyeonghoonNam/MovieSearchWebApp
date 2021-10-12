@@ -59,7 +59,7 @@ export default {
 
 header {
   width: 35%;
-  margin: 100px 0;
+  margin: 80px 0;
   flex-direction: column;
   justify-content: center;
 
