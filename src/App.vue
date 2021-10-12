@@ -2,7 +2,7 @@
   <div class="app__inner">
     <div class="app__page">
       <Header />
-      <main></main>
+      <RouterView />
     </div>
   </div>
 </template>
@@ -33,9 +33,10 @@ export default {
       flex-direction: column;
       align-items: center;
 
-      // main {
-      //   border: solid 1px black;
-      // }
+      main {
+        width: 100%;
+        border: solid 1px black;
+      }
     }
   }
 
