@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Movies from './Movies.vue'
+import Home from './Home'
 
 export default createRouter({
   history: createWebHistory(),
@@ -7,10 +7,7 @@ export default createRouter({
   routes: [
     {
       path: '/',
-      component: Movies,
+      component: Home,
     },
-    {
-      path: '/:notFound(.*)',
-    }
   ]
 })

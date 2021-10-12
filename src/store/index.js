@@ -7,14 +7,14 @@ export default createStore({
   state() {
     return {
       movieList: {},
+      isInitialize: true
     }
   },
   mutations: {
     updateState(state, newState) {
-      state = {
-        ...state,
-        ...newState
-      }
+      Object.keys(newState).forEach(key => {
+        state[key] = newState[key]    
+      })
     }
   },
   actions: {
@@ -22,10 +22,9 @@ export default createStore({
       const { userInput } = data
       const movieList = await fetch(`${API_END_POINT}?apikey=${API_KEY}&s=${userInput}`).then(res => res.json())
 
-      console.log(movieList)
-
       commit('updateState', {
         movieList: movieList.Search,
+        isInitialize: false
       })
     }
   }

@@ -1,21 +1,10 @@
 <template>
   <div class="app__inner">
     <div class="app__page">
-      <Header />
       <RouterView />
     </div>
   </div>
 </template>
-
-<script>
-import Header from '~/components/layout/Header'
-
-export default {
-  components: {
-    Header
-  }
-}
-</script>
 
 <style scoped lang="scss">
   * {
@@ -33,10 +22,10 @@ export default {
       flex-direction: column;
       align-items: center;
 
-      main {
-        width: 100%;
-        border: solid 1px black;
-      }
+      // main {
+      //   width: 100%;
+      //   border: solid 1px black;
+      // }
     }
   }
 
