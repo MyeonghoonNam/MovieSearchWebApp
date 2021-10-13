@@ -31,7 +31,7 @@ export default createStore({
 
     async fetchMovie({ commit }, data = {}) {
       const { id } = data
-      const movieInfo = await fetch(`${API_END_POINT}?apikey=${API_KEY}&i=${id}`).then(res => res.json())
+      const movieInfo = await fetch(`${API_END_POINT}?apikey=${API_KEY}&i=${id}&plot=full`).then(res => res.json())
 
       commit('updateState', {
         movieInfo
