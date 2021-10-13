@@ -1,7 +1,9 @@
 const axios = require('axios')
+const dotenv = require('dotenv')
 
-const API_KEY = process.env.API_KEY
-const API_END_POINT = process.env.API_END_POINT
+dotenv.config()
+
+const { API_KEY, API_END_POINT } = process.env
 
 exports.handler = async function (event) {
   const { data } = await axios.get(API_END_POINT, {
