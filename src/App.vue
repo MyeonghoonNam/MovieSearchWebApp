@@ -2,7 +2,9 @@
   <div class="app__inner">
     <div class="app__page">
       <Header />
-      <RouterView />
+      <main>
+        <RouterView />
+      </main>
     </div>
   </div>
 </template>
@@ -33,10 +35,11 @@ export default {
       flex-direction: column;
       align-items: center;
 
-      // main {
-      //   width: 100%;
-      //   border: solid 1px black;
-      // }
+      main {
+        width: 100%;
+        // padding-bottom: 50px;
+        border:solid 1px black;
+      }
     }
   }
 

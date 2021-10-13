@@ -1,30 +1,28 @@
 <template>
-  <main>
-    <section>
-      <ul
-        class="movies"
+  <section>
+    <ul
+      class="movies"
+    >
+      <li
+        v-for="movie in movieList"
+        :key="movie.imdbID"
+        class="movie"
+        @click="fetchMovie(movie.imdbID)"
       >
-        <li
-          v-for="movie in movieList"
-          :key="movie.imdbID"
-          class="movie"
-          @click="fetchMovie(movie.imdbID)"
-        >
-          <img
-            class="movie__poster"
-            :src="`${movie.Poster}`"
-            alt="영화 포스터"
-          />
-          <div class="movie__title">
-            {{ movie.Title }}
-          </div>
-          <div class="movie__year">
-            {{ movie.Year }}
-          </div>
-        </li>
-      </ul>
-    </section>
-  </main>
+        <img
+          class="movie__poster"
+          :src="`${movie.Poster}`"
+          alt="영화 포스터"
+        />
+        <div class="movie__title">
+          {{ movie.Title }}
+        </div>
+        <div class="movie__year">
+          {{ movie.Year }}
+        </div>
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
@@ -51,13 +49,8 @@ export default {
   box-sizing: border-box;
 }
 
-main {
-  width: 100%;
-  padding-bottom: 50px;
-}
-
 .movies {
-  padding: 0 50px;
+  padding: 0 50px 50px 50px;
   display: grid;
   gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(280px, auto));
