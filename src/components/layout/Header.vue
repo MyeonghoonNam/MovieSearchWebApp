@@ -41,12 +41,14 @@ export default {
     }
   },
   methods: {
-    searchMovies() {
-      this.$store.dispatch('fetchMovieList', {
+    async searchMovies() {
+      await this.$store.dispatch('fetchMovieList', {
         userInput: this.userInput
       })
 
       this.userInput = ''
+
+      this.$router.push({name: 'MovieList'})
     }
   }
 }
