@@ -29,7 +29,6 @@ export default {
     font-family: "Noto Sans KR", sans-serif;
 
     .app__page {
-      // border: solid 1px red;
       height: 100%;
       display:flex;
       flex-direction: column;
@@ -37,8 +36,6 @@ export default {
 
       main {
         width: 100%;
-        // padding-bottom: 50px;
-        border:solid 1px black;
       }
     }
   }
