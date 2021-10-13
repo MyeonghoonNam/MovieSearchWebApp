@@ -1,8 +1,5 @@
 import { createStore } from 'vuex'
 
-const API_KEY = process.env.API_KEY
-const API_END_POINT = process.env.API_END_POINT
-
 export default createStore({
   state() {
     return {
@@ -15,14 +12,15 @@ export default createStore({
       Object.keys(newState).forEach(key => {
         state[key] = newState[key]    
       })
-
-      console.log(state)
     }
   },
   actions: {
     async fetchMovieList({ commit }, data = {}) {
       const { userInput } = data
-      const movieList = await fetch(`${API_END_POINT}?apikey=${API_KEY}&s=${userInput}`).then(res => res.json())
+      const movieList = await _request({
+        s: userInput,
+        method: 'GET'
+      })
 
       commit('updateState', {
         movieList: movieList.Search,
@@ -31,7 +29,11 @@ export default createStore({
 
     async fetchMovie({ commit }, data = {}) {
       const { id } = data
-      const movieInfo = await fetch(`${API_END_POINT}?apikey=${API_KEY}&i=${id}&plot=full`).then(res => res.json())
+      const movieInfo = await _request({
+        i: id,
+        plot: 'full',
+        method: 'GET'
+      })
 
       commit('updateState', {
         movieInfo
@@ -39,3 +41,10 @@ export default createStore({
     }
   }
 })
+
+async function _request(options) {
+  return await fetch('/.netlify/functions/serverless', {
+    method: 'POST',
+    body: JSON.stringify(options)
+  }).then(res => res.json())
+}

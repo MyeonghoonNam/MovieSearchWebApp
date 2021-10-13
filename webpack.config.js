@@ -2,7 +2,7 @@ const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const DotenvWebpack = require('dotenv-webpack')
 const HtmlPlugin = require('html-webpack-plugin')
-// const CopyPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -39,13 +39,14 @@ module.exports = {
       template: './src/index.html'
     }),
     new DotenvWebpack(),
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: 'static' }
-    //   ]
-    // })
+    new CopyPlugin({
+      patterns: [
+        { from: 'static' }
+      ]
+    })
   ],
   devServer: {
+    port: 8079,
     historyApiFallback: true
   }
 }
