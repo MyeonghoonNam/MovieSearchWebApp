@@ -1,28 +1,31 @@
 <template>
-  <section>
-    <ul
-      v-if="!isInitialize"
-      class="movies"
-    >
-      <li
-        v-for="movie in movieList"
-        :key="movie.imdbID"
-        class="movie"
+  <main>
+    <section>
+      <ul
+        v-if="!isInitialize"
+        class="movies"
       >
-        <img
-          class="movie__poster"
-          :src="`${movie.Poster}`"
-          alt="영화 포스터"
-        />
-        <div class="movie__title">
-          {{ movie.Title }}
-        </div>
-        <div class="movie__year">
-          {{ movie.Year }}
-        </div>
-      </li>
-    </ul>
-  </section>
+        <li
+          v-for="movie in movieList"
+          :key="movie.imdbID"
+          class="movie"
+          @click="$router.push({ name: 'MovieInfo', params: { id: movie.imdbID} })"
+        >
+          <img
+            class="movie__poster"
+            :src="`${movie.Poster}`"
+            alt="영화 포스터"
+          />
+          <div class="movie__title">
+            {{ movie.Title }}
+          </div>
+          <div class="movie__year">
+            {{ movie.Year }}
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -43,11 +46,16 @@ export default {
   box-sizing: border-box;
 }
 
+main {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
 .movies {
   padding: 0 50px;
   display: grid;
   gap: 50px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
   
 
   .movie {

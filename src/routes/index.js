@@ -1,13 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from './Home'
+import MovieList from './MovieList'
+import MovieInfo from './MovieInfo'
 
 export default createRouter({
   history: createWebHistory(),
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
-      path: '/',
-      component: Home,
+      path: '/movieList',
+      name: 'MovieList',
+      component: MovieList
     },
+    {
+      path: '/movieList/:id',
+      name: 'MovieInfo',
+      component: MovieInfo
+    }
   ]
 })

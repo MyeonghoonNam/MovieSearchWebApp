@@ -1,10 +1,21 @@
 <template>
   <div class="app__inner">
     <div class="app__page">
+      <Header />
       <RouterView />
     </div>
   </div>
 </template>
+
+<script>
+import Header from '~/components/layout/Header'
+
+export default {
+  components: {
+    Header
+  }  
+}
+</script>
 
 <style scoped lang="scss">
   * {
