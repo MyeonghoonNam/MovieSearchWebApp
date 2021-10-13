@@ -2,14 +2,13 @@
   <main>
     <section>
       <ul
-        v-if="!isInitialize"
         class="movies"
       >
         <li
           v-for="movie in movieList"
           :key="movie.imdbID"
           class="movie"
-          @click="$router.push({ name: 'MovieInfo', params: { id: movie.imdbID} })"
+          @click="fetchMovie(movie.imdbID)"
         >
           <img
             class="movie__poster"
@@ -38,6 +37,12 @@ export default {
       return this.$store.state.isInitialize
     }
   },
+  methods: {
+    async fetchMovie(id) {
+      await this.$store.dispatch('fetchMovie', { id })
+      this.$router.push({ name: 'MovieInfo', params: { id } })
+    }
+  }
 }
 </script>
 

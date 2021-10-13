@@ -9,7 +9,7 @@ export default createRouter({
     {
       path: '/movieList',
       name: 'MovieList',
-      component: MovieList
+      component: MovieList,
     },
     {
       path: '/movieList/:id',

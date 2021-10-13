@@ -7,7 +7,7 @@ export default createStore({
   state() {
     return {
       movieList: {},
-      isInitialize: true
+      movieInfo: {}
     }
   },
   mutations: {
@@ -15,6 +15,8 @@ export default createStore({
       Object.keys(newState).forEach(key => {
         state[key] = newState[key]    
       })
+
+      console.log(state)
     }
   },
   actions: {
@@ -24,8 +26,16 @@ export default createStore({
 
       commit('updateState', {
         movieList: movieList.Search,
-        isInitialize: false
       })
+    },
+
+    async fetchMovie({ commit }, data = {}) {
+      const { id } = data
+      const movieInfo = await fetch(`${API_END_POINT}?apikey=${API_KEY}&i=${id}`).then(res => res.json())
+
+      commit('updateState', {
+        movieInfo
+      }) 
     }
   }
 })
