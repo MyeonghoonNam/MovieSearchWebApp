@@ -6,9 +6,7 @@ Vue.js와 영화 검색 API(OMDb API)를 활용한 애플리케이션
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2b3137bd-ab68-48cd-9855-f6212a56816b/deploy-status)](https://app.netlify.com/sites/wizardly-dubinsky-860f97/deploys)
 
 ## DEMO
-<p align="middle">
-  <img src="https://images.velog.io/images/codenmh0822/post/99990a40-61d2-437d-849b-f0b7a00642c9/MovieSearchWebApp.gif"/>
-</p>
+![MovieSearchWebApp](https://user-images.githubusercontent.com/57757719/147871929-fff60582-3f32-4bf2-a0f8-91db932a741b.gif)
 
 <br/>
 
